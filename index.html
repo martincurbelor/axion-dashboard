@@ -44,14 +44,11 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
 .ctab .tv{font-size:19px;font-weight:700;line-height:1.1;display:block;}
 .ctab .tl{font-size:10px;letter-spacing:.08em;text-transform:uppercase;opacity:.75;display:block;margin-top:3px;}
 
-/* KPI GRIDS */
 .g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:12px;}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
 .g31{display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:14px;}
-.g211{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin-bottom:14px;}
 
-/* KPI CARD */
 .kpi{background:var(--sf);border:1px solid var(--b);border-radius:var(--r);padding:14px 18px;position:relative;overflow:hidden;transition:box-shadow .2s;}
 .kpi:hover{box-shadow:0 4px 18px var(--pg);}
 .kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--p2);}
@@ -65,7 +62,6 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
 .kdelta-item.dn{background:#FFEBEE;color:#C62828;}
 .kdelta-item.neu{background:var(--sf2);color:var(--t3);}
 
-/* KPI ACUMULADO */
 .kpi-acum{background:var(--sf);border:1px solid var(--b);border-radius:var(--r);padding:14px 18px;position:relative;overflow:hidden;}
 .kpi-acum::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--p3);}
 .acum-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:2px;}
@@ -95,17 +91,8 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
 .badge.comb{background:#E8E2F8;color:var(--p1);}
 .badge.mini{background:#DFF3FC;color:#0070A0;}
 
-.tbl{width:100%;border-collapse:collapse;font-size:13px;}
-.tbl th{color:var(--t3);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:0 0 8px;text-align:left;border-bottom:1px solid var(--b);}
-.tbl th:not(:first-child){text-align:right;}
-.tbl td{padding:8px 0;border-bottom:1px solid var(--b);color:var(--t2);vertical-align:middle;}
-.tbl tr:last-child td{border-bottom:none;}
-.tbl td.num{color:var(--t1);font-weight:600;text-align:right;}
-.rnk{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:4px;font-size:11px;font-weight:700;background:var(--sf2);color:var(--t3);margin-right:6px;}
-.rnk.top{background:var(--pl);color:var(--p2);}
-
-@media(max-width:1200px){.g4{grid-template-columns:repeat(2,1fr);}.g211{grid-template-columns:1fr 1fr;}.g3{grid-template-columns:1fr 1fr;}}
-@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr);}.g211,.g2,.g3,.g31{grid-template-columns:1fr;}.cat-tabs{grid-template-columns:1fr;}}
+@media(max-width:1200px){.g4{grid-template-columns:repeat(2,1fr);}.g3{grid-template-columns:1fr 1fr;}}
+@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr);}.g2,.g3,.g31{grid-template-columns:1fr;}.cat-tabs{grid-template-columns:1fr;}}
 @media(max-width:560px){.main{padding:14px;}.hdr{padding:0 14px;}.filterbar{gap:8px;}}
 </style>
 </head>
@@ -119,7 +106,7 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
       <text x="1" y="38" font-family="'Segoe UI',Arial,sans-serif" font-weight="300" font-size="10" fill="#888" letter-spacing="4.5">energy</text>
     </svg>
     <div class="hdiv"></div>
-    <div><div class="htitle">Dashboard de ventas</div><div class="hsub">Estación de servicio</div></div>
+    <div><div class="htitle">Dashboard de ventas</div><div class="hsub">Estacion de servicio</div></div>
   </div>
   <div class="hmeta">Mostrando: <strong id="hdrPeriod">—</strong></div>
 </header>
@@ -128,16 +115,11 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
 
   <!-- FILTROS -->
   <div class="filterbar">
-    <span class="fl">Año</span>
+    <span class="fl">Ano</span>
     <select class="fselect" id="selAnio" onchange="onAnioChange()"></select>
     <div class="fsep"></div>
     <span class="fl">Mes</span>
     <select class="fselect" id="selMes" onchange="onMesChange()"></select>
-    <div class="fsep"></div>
-    <span class="fl">Cliente</span>
-    <select class="fselect" id="selCliente" onchange="rAll()" style="max-width:180px;">
-      <option value="">Todos</option>
-    </select>
     <div class="fsep"></div>
     <span class="fl">Producto</span>
     <select class="fselect" id="selProducto" onchange="rAll()" style="max-width:200px;">
@@ -148,15 +130,15 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
   <!-- CATEGORY TABS -->
   <div class="cat-tabs">
     <button class="ctab on" id="tabTodas" onclick="setCat('todas',this)">
-      <span class="tico">🏪</span>
+      <span class="tico">&#127978;</span>
       <span class="tinfo"><span class="tv" id="tvTodas">—</span><span class="tl">Total general</span></span>
     </button>
     <button class="ctab" id="tabComb" onclick="setCat('comb',this)">
-      <span class="tico">⛽</span>
+      <span class="tico">&#9981;</span>
       <span class="tinfo"><span class="tv" id="tvComb">—</span><span class="tl">Combustibles</span></span>
     </button>
     <button class="ctab" id="tabMini" onclick="setCat('mini',this)">
-      <span class="tico">🛒</span>
+      <span class="tico">&#128722;</span>
       <span class="tinfo"><span class="tv" id="tvMini">—</span><span class="tl">Minimercado</span></span>
     </button>
   </div>
@@ -183,40 +165,32 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
       <div class="kdelta" id="kTkDelta"></div>
     </div>
     <div class="kpi hi">
-      <div class="klbl">Día pico</div>
+      <div class="klbl">Dia pico</div>
       <div class="kval" id="kP">—</div>
       <div class="ksub" id="kPs">—</div>
     </div>
   </div>
 
-  <!-- KPIs ACUMULADO AÑO -->
-  <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;">Acumulado año</div>
+  <!-- KPIs ACUMULADO -->
+  <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;">Acumulado ano</div>
   <div class="g4" style="margin-bottom:20px;">
     <div class="kpi-acum">
-      <div class="acum-row">
-        <span class="acum-lbl">Total facturado</span>
-      </div>
+      <div class="acum-row"><span class="acum-lbl">Total facturado</span></div>
       <div class="acum-val" id="aT">—</div>
       <div class="acum-delta" id="aTDelta"></div>
     </div>
     <div class="kpi-acum">
-      <div class="acum-row">
-        <span class="acum-lbl">Boletas emitidas</span>
-      </div>
+      <div class="acum-row"><span class="acum-lbl">Boletas emitidas</span></div>
       <div class="acum-val" id="aTr">—</div>
       <div class="acum-delta" id="aTrDelta"></div>
     </div>
     <div class="kpi-acum">
-      <div class="acum-row">
-        <span class="acum-lbl">Promedio mensual</span>
-      </div>
+      <div class="acum-row"><span class="acum-lbl">Promedio mensual</span></div>
       <div class="acum-val" id="aProm">—</div>
       <div class="acum-delta" id="aPromDelta"></div>
     </div>
     <div class="kpi-acum">
-      <div class="acum-row">
-        <span class="acum-lbl">Meses con datos</span>
-      </div>
+      <div class="acum-row"><span class="acum-lbl">Meses con datos</span></div>
       <div class="acum-val" id="aMeses">—</div>
       <div class="acum-delta" id="aMesesDelta"></div>
     </div>
@@ -229,30 +203,30 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
         <span class="ctit">Ventas diarias</span>
         <div style="display:flex;gap:6px;">
           <button class="chip on" id="bBar" onclick="togDia('bar')">Barras</button>
-          <button class="chip" id="bLine" onclick="togDia('line')">Línea</button>
+          <button class="chip" id="bLine" onclick="togDia('line')">Linea</button>
         </div>
       </div>
       <div style="position:relative;width:100%;height:240px;"><canvas id="cDia"></canvas></div>
     </div>
     <div class="card" style="display:flex;flex-direction:column;">
-      <div class="chd"><span class="ctit">Mix categorías</span></div>
+      <div class="chd"><span class="ctit">Mix categorias</span></div>
       <div style="position:relative;width:100%;height:180px;"><canvas id="cDon"></canvas></div>
       <div style="margin-top:14px;" id="dLeg"></div>
     </div>
   </div>
 
-  <!-- HORAS — fila completa -->
+  <!-- HORAS -->
   <div style="margin-bottom:14px;">
     <div class="card">
       <div class="chd">
-        <span class="ctit">Venta por hora del día</span>
+        <span class="ctit">Venta por hora del dia</span>
         <span style="font-size:11px;color:var(--t3);">picos en naranja</span>
       </div>
       <div style="position:relative;width:100%;height:200px;"><canvas id="cHr"></canvas></div>
     </div>
   </div>
 
-  <!-- TOP PRODUCTOS — una columna -->
+  <!-- TOP PRODUCTOS -->
   <div style="margin-bottom:14px;">
     <div class="card">
       <div class="chd"><span class="ctit" id="titProd">Top productos</span></div>
@@ -260,59 +234,40 @@ body{background:var(--bg);color:var(--t1);font-family:var(--font);min-height:100
     </div>
   </div>
 
-  <!-- DIA SEMANA + TICKET + CLIENTES -->
-  <div class="g3">
+  <!-- DIA SEMANA + TICKET -->
+  <div class="g2">
     <div class="card">
-      <div class="chd"><span class="ctit">Venta promedio por día</span></div>
+      <div class="chd"><span class="ctit">Venta promedio por dia</span></div>
       <div style="position:relative;width:100%;height:240px;"><canvas id="cDiaSem"></canvas></div>
     </div>
     <div class="card">
-      <div class="chd"><span class="ctit">Distribución de ticket</span></div>
+      <div class="chd"><span class="ctit">Distribucion de ticket</span></div>
       <div style="position:relative;width:100%;height:200px;"><canvas id="cTicket"></canvas></div>
       <div id="ticketStats" style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;"></div>
-    </div>
-    <div class="card">
-      <div class="chd"><span class="ctit">Top clientes — crédito combustible</span></div>
-      <table class="tbl" id="tRUT"></table>
-    </div>
-  </div>
-
-  <!-- TOP MATRICULAS — una columna -->
-  <div style="margin-bottom:0;">
-    <div class="card">
-      <div class="chd">
-        <span class="ctit">Top 10 matrículas</span>
-        <span style="font-size:11px;color:var(--t3);">litros y monto · combustibles</span>
-      </div>
-      <table class="tbl" id="tMat"></table>
     </div>
   </div>
 
 </main>
 
 <script>
-// ── COLORES FIJOS ─────────────────────────────────────────
-const C_COMB   = '#3A1F78';  // combustibles: violeta oscuro
-const C_MINI   = '#00AEEF';  // minimercado: celeste
-const C_PEAK   = '#E8420A';  // pico del día: naranja Axion
-const C_BAR    = '#5B32A8';  // barra normal: violeta medio
+const C_COMB   = '#3A1F78';
+const C_MINI   = '#00AEEF';
+const C_PEAK   = '#E8420A';
+const C_BAR    = '#5B32A8';
 const C_BARP   = ['#3A1F78','#5B32A8','#7D50D4','#A07AE8','#C4A8F5'];
 const TT       = {backgroundColor:'#fff',titleColor:'#1A1A2E',bodyColor:'#5A5870',borderColor:'rgba(0,0,0,0.1)',borderWidth:1};
 const MESES_NOM= {1:'Enero',2:'Febrero',3:'Marzo',4:'Abril',5:'Mayo',6:'Junio',7:'Julio',8:'Agosto',9:'Septiembre',10:'Octubre',11:'Noviembre',12:'Diciembre'};
 
-let RAW={}, DIA_SEM=[], TICKET_DIST=[], TOP_RUT=[], TOP_MAT=[];
-let S={anio:'2026',mes:'2',cat:'todas',dt:'bar',cliente:'',producto:''};
+let RAW={}, DIA_SEM=[], TICKET_DIST=[], TICKET_STATS={};
+let S={anio:'2026',mes:'1',cat:'todas',dt:'bar',producto:''};
 let cD,cDon,cH;
 
 const fmt  = n=>n>=1e6?'$u '+(n/1e6).toFixed(2)+'M':n>=1e3?'$u '+(n/1e3).toFixed(0)+'k':'$u '+Math.round(n).toLocaleString('es-UY');
 const fF   = n=>'$u '+Math.round(n).toLocaleString('es-UY');
-const pct  = (a,b)=>b&&b!==0?((a-b)/Math.abs(b)*100).toFixed(1)+'%':null;
-const diff = (a,b)=>b!==undefined&&b!==0?(a-b>=0?'+':'')+fmt(a-b):null;
 
 function getMes(){return RAW[S.anio]?.[S.mes]||null;}
 function getCatData(){const m=getMes();return m?m[S.cat]:null;}
 
-// Devuelve el total del mes anterior (puede ser año anterior)
 function getTotMesAnterior(){
   const m=parseInt(S.mes), a=parseInt(S.anio);
   let pm=m-1, pa=a;
@@ -321,14 +276,12 @@ function getTotMesAnterior(){
     ? Object.values(RAW[String(pa)][String(pm)][S.cat].vd).reduce((x,y)=>x+y,0) : null;
 }
 
-// Devuelve el total del mismo mes del año anterior
 function getTotMismoMesAnioAnterior(){
   const pa=String(parseInt(S.anio)-1);
   return RAW[pa]?.[S.mes]?.[S.cat]?.vd
     ? Object.values(RAW[pa][S.mes][S.cat].vd).reduce((x,y)=>x+y,0) : null;
 }
 
-// Acumulado del año en curso hasta el mes seleccionado
 function getAcumAnio(anio){
   const a=String(anio||S.anio);
   if(!RAW[a]) return {total:0,tt:0,meses:0};
@@ -344,11 +297,11 @@ function getAcumAnio(anio){
   return{total,tt,meses};
 }
 
-// ── SELECTS ───────────────────────────────────────────────
+// SELECTS
 function buildSelects(){
   const anos=Object.keys(RAW).sort();
   const sA=document.getElementById('selAnio');
-  sA.innerHTML=anos.map(a=>`<option value="${a}">${a}</option>`).join('');
+  sA.innerHTML=anos.map(a=>'<option value="'+a+'">'+a+'</option>').join('');
   sA.value=S.anio;
   buildMeses();
 }
@@ -356,23 +309,12 @@ function buildSelects(){
 function buildMeses(){
   const meses=Object.keys(RAW[S.anio]||{}).map(Number).sort((a,b)=>a-b);
   const sM=document.getElementById('selMes');
-  sM.innerHTML=meses.map(m=>`<option value="${m}">${MESES_NOM[m]}</option>`).join('');
+  sM.innerHTML=meses.map(m=>'<option value="'+m+'">'+MESES_NOM[m]+'</option>').join('');
   if(!RAW[S.anio]?.[S.mes]) S.mes=String(meses[meses.length-1]);
   sM.value=S.mes;
 }
 
-function buildFiltrosClienteProd(){
-  // Clientes desde TOP_RUT
-  const sC=document.getElementById('selCliente');
-  sC.innerHTML='<option value="">Todos los clientes</option>';
-  TOP_RUT.forEach(r=>{
-    const o=document.createElement('option');
-    o.value=r.rut; o.textContent=r.titular;
-    sC.appendChild(o);
-  });
-  sC.value=S.cliente;
-
-  // Productos desde datos del mes actual
+function buildFiltrosProd(){
   const m=getMes();
   const sP=document.getElementById('selProducto');
   sP.innerHTML='<option value="">Todos los productos</option>';
@@ -387,18 +329,15 @@ function buildFiltrosClienteProd(){
   sP.value=S.producto;
 }
 
-function onAnioChange(){S.anio=document.getElementById('selAnio').value;buildMeses();buildFiltrosClienteProd();rAll();}
-function onMesChange(){S.mes=document.getElementById('selMes').value;buildFiltrosClienteProd();rAll();}
+function onAnioChange(){S.anio=document.getElementById('selAnio').value;buildMeses();buildFiltrosProd();rAll();}
+function onMesChange(){S.mes=document.getElementById('selMes').value;buildFiltrosProd();rAll();}
 
-// ── FILTRAR PRODUCTOS según selección ─────────────────────
 function filtrarProd(pr){
-  let res=pr;
-  if(S.producto) res=res.filter(p=>p.n===S.producto);
-  // Si hay cliente seleccionado, sólo mostramos los suyos (aproximación por categoría)
-  return res;
+  if(S.producto) return pr.filter(p=>p.n===S.producto);
+  return pr;
 }
 
-// ── INIT CHARTS ───────────────────────────────────────────
+// INIT CHARTS
 function initCharts(){
   const m=getMes();
   const d=getCatData();
@@ -429,18 +368,18 @@ function initCharts(){
   });
 }
 
-// ── DELTA BADGE ───────────────────────────────────────────
+// DELTA BADGE
 function deltaBadge(actual, anterior, label){
   if(anterior===null||anterior===undefined||anterior===0) return '';
   const p=((actual-anterior)/Math.abs(anterior)*100);
   const d=(actual-anterior>=0?'+':'')+fmt(actual-anterior);
   const cls=p>0?'up':p<0?'dn':'neu';
-  const arrow=p>0?'▲':p<0?'▼':'—';
-  const lbl=label?`<span class="kdelta-item neu" style="font-weight:400;background:none;border:none;padding-left:0;">${label}</span>`:'';
-  return `<span class="kdelta-item ${cls}">${arrow} ${Math.abs(p).toFixed(1)}% · ${d}</span>${lbl}`;
+  const arrow=p>0?'&#9650;':p<0?'&#9660;':'—';
+  const lbl=label?'<span class="kdelta-item neu" style="font-weight:400;background:none;border:none;padding-left:0;">'+label+'</span>':'';
+  return '<span class="kdelta-item '+cls+'">'+arrow+' '+Math.abs(p).toFixed(1)+'% · '+d+'</span>'+lbl;
 }
 
-// ── RENDER KPIs MES ───────────────────────────────────────
+// RENDER KPIs MES
 function rKPI(){
   const m=getMes(); const d=getCatData();
   if(!m||!d)return;
@@ -457,12 +396,12 @@ function rKPI(){
   const trMA   = RAW[String(parseInt(S.mes)===1?parseInt(S.anio)-1:S.anio)]?.[String(parseInt(S.mes)===1?12:parseInt(S.mes)-1)]?.[S.cat]?.tt||null;
 
   document.getElementById('kT').textContent=fmt(tot);
-  document.getElementById('kTs').textContent=act+' días con ventas';
+  document.getElementById('kTs').textContent=act+' dias con ventas';
   document.getElementById('kTDelta').innerHTML=
-    deltaBadge(tot,totMA,'vs mes ant.')+' '+deltaBadge(tot,totAA,'vs mismo mes año ant.');
+    deltaBadge(tot,totMA,'vs mes ant.')+' '+deltaBadge(tot,totAA,'vs mismo mes ano ant.');
 
   document.getElementById('kTr').textContent=tr.toLocaleString('es-UY');
-  document.getElementById('kTrs').textContent='~'+Math.round(tr/Math.max(act,1))+' / día';
+  document.getElementById('kTrs').textContent='~'+Math.round(tr/Math.max(act,1))+' / dia';
   document.getElementById('kTrDelta').innerHTML=deltaBadge(tr,trMA,'vs mes ant.');
 
   if(S.cat==='comb'&&d.litros){
@@ -480,31 +419,31 @@ function rKPI(){
   document.getElementById('kPs').textContent=fF(Math.max(...ds));
 }
 
-// ── RENDER KPIs ACUMULADO ─────────────────────────────────
+// RENDER KPIs ACUMULADO
 function rAcum(){
   const cur =getAcumAnio(S.anio);
   const prev=getAcumAnio(parseInt(S.anio)-1);
 
   document.getElementById('aT').textContent=fmt(cur.total);
   document.getElementById('aTDelta').innerHTML=
-    prev.total>0?`vs ${parseInt(S.anio)-1}: `+deltaBadge(cur.total,prev.total,''):'';
+    prev.total>0?'vs '+(parseInt(S.anio)-1)+': '+deltaBadge(cur.total,prev.total,''):'';
 
   document.getElementById('aTr').textContent=cur.tt.toLocaleString('es-UY');
   document.getElementById('aTrDelta').innerHTML=
-    prev.tt>0?`vs ${parseInt(S.anio)-1}: `+deltaBadge(cur.tt,prev.tt,''):'';
+    prev.tt>0?'vs '+(parseInt(S.anio)-1)+': '+deltaBadge(cur.tt,prev.tt,''):'';
 
   const promCur =cur.meses>0?cur.total/cur.meses:0;
   const promPrev=prev.meses>0?prev.total/prev.meses:0;
   document.getElementById('aProm').textContent=fmt(promCur);
   document.getElementById('aPromDelta').innerHTML=
-    promPrev>0?`vs ${parseInt(S.anio)-1}: `+deltaBadge(promCur,promPrev,''):'';
+    promPrev>0?'vs '+(parseInt(S.anio)-1)+': '+deltaBadge(promCur,promPrev,''):'';
 
   document.getElementById('aMeses').textContent=cur.meses+' mes'+(cur.meses!==1?'es':'');
   document.getElementById('aMesesDelta').innerHTML=
-    `Acumulado a ${MESES_NOM[parseInt(S.mes)]} ${S.anio}`;
+    'Acumulado a '+MESES_NOM[parseInt(S.mes)]+' '+S.anio;
 }
 
-// ── RENDER TABS ───────────────────────────────────────────
+// RENDER TABS
 function rTabs(){
   const m=getMes();if(!m)return;
   const totT=Object.values(m.todas.vd).reduce((a,b)=>a+b,0);
@@ -515,18 +454,17 @@ function rTabs(){
   document.getElementById('tvMini').textContent=fmt(totM);
 }
 
-// ── RENDER DONUT LEGEND ───────────────────────────────────
+// RENDER DONUT
 function rDL(tm){
   const tot=tm.totComb+tm.totMini;
   document.getElementById('dLeg').innerHTML=
-    `<div class="drow"><div class="ddot" style="background:${C_COMB}"></div><div class="dnm">Combustibles</div><div class="dvl">${fmt(tm.totComb)}</div><div class="dpc">${(tm.totComb/tot*100).toFixed(1)}%</div></div>`+
-    `<div class="drow"><div class="ddot" style="background:${C_MINI}"></div><div class="dnm">Minimercado</div><div class="dvl">${fmt(tm.totMini)}</div><div class="dpc">${(tm.totMini/tot*100).toFixed(1)}%</div></div>`;
+    '<div class="drow"><div class="ddot" style="background:'+C_COMB+'"></div><div class="dnm">Combustibles</div><div class="dvl">'+fmt(tm.totComb)+'</div><div class="dpc">'+(tm.totComb/tot*100).toFixed(1)+'%</div></div>'+
+    '<div class="drow"><div class="ddot" style="background:'+C_MINI+'"></div><div class="dnm">Minimercado</div><div class="dvl">'+fmt(tm.totMini)+'</div><div class="dpc">'+(tm.totMini/tot*100).toFixed(1)+'%</div></div>';
   cDon.data.datasets[0].data=[tm.totComb,tm.totMini];
-  cDon.data.datasets[0].backgroundColor=[C_COMB,C_MINI];
   cDon.update('active');
 }
 
-// ── RENDER BARRAS PRODUCTOS — una sola columna ────────────
+// RENDER BARRAS PRODUCTOS
 function rBP(pr){
   const c=document.getElementById('bPr');c.innerHTML='';
   if(!pr||!pr.length)return;
@@ -534,18 +472,15 @@ function rBP(pr){
   if(!filtered.length){c.innerHTML='<div style="color:var(--t3);font-size:13px;padding:8px 0;">Sin resultados para el filtro seleccionado.</div>';return;}
   const mx=filtered[0].v;
   filtered.forEach((p,i)=>{
-    // Color: combustibles siempre violeta, minimercado siempre celeste
-    const barCol = p.cat==='comb'
-      ? C_BARP[Math.min(i,C_BARP.length-1)]
-      : C_MINI;
+    const barCol = p.cat==='comb' ? C_BARP[Math.min(i,C_BARP.length-1)] : C_MINI;
     const badge=S.cat==='todas'?(p.cat==='comb'?'<span class="badge comb">comb</span>':'<span class="badge mini">mini</span>'):'';
     const row=document.createElement('div');row.className='brow';
-    row.innerHTML=`<div class="blbl" title="${p.n}">${p.n}${badge}</div><div class="btrk"><div class="bfil" style="width:${(p.v/mx*100).toFixed(1)}%;background:${barCol};"></div></div><div class="bval">${fmt(p.v)}</div>`;
+    row.innerHTML='<div class="blbl" title="'+p.n+'">'+p.n+badge+'</div><div class="btrk"><div class="bfil" style="width:'+(p.v/mx*100).toFixed(1)+'%;background:'+barCol+';"></div></div><div class="bval">'+fmt(p.v)+'</div>';
     c.appendChild(row);
   });
 }
 
-// ── RENDER DIA CHART ──────────────────────────────────────
+// RENDER DIA CHART
 function rDiaChart(){
   const m=getMes();const d=getCatData();if(!m||!d)return;
   const dias=m.dias;
@@ -557,7 +492,7 @@ function rDiaChart(){
   cD.update('active');
 }
 
-// ── RENDER HORAS ──────────────────────────────────────────
+// RENDER HORAS
 function rHoras(){
   const m=getMes();if(!m)return;
   const horas=m.horas;
@@ -568,15 +503,14 @@ function rHoras(){
   cH.update('active');
 }
 
-// ── RENDER HEADER ─────────────────────────────────────────
+// RENDER HEADER
 function rHeader(){
   const mesNom=MESES_NOM[parseInt(S.mes)]||S.mes;
-  document.getElementById('hdrPeriod').textContent=`${mesNom} ${S.anio}`;
+  document.getElementById('hdrPeriod').textContent=mesNom+' '+S.anio;
 }
 
-// ── UPDATE ALL ────────────────────────────────────────────
+// UPDATE ALL
 function rAll(){
-  S.cliente  = document.getElementById('selCliente').value;
   S.producto = document.getElementById('selProducto').value;
   const m=getMes();const d=getCatData();if(!m||!d)return;
   rHeader();rTabs();rDiaChart();rHoras();
@@ -604,13 +538,13 @@ function togDia(t){
   cD.update();
 }
 
-// ── CHARTS ESTÁTICOS ──────────────────────────────────────
-function initStaticCharts(diaSem,ticketDist,topRut,topMat){
+// CHARTS ESTATICOS
+function initStaticCharts(diaSem,ticketDist){
   const maxDS=Math.max(...diaSem.map(x=>x.v));
   new Chart(document.getElementById('cDiaSem'),{
     type:'bar',
     data:{labels:diaSem.map(x=>x.d),datasets:[{data:diaSem.map(x=>x.v),backgroundColor:diaSem.map(x=>x.d==='Domingo'?C_BARP[4]:x.v>=maxDS*.95?C_PEAK:C_BAR),borderRadius:4,borderSkipped:false}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fF(c.raw)+' prom/día'},...TT}},scales:{x:{grid:{display:false},ticks:{color:'#9E9CB0',font:{size:11}}},y:{grid:{color:'rgba(0,0,0,0.05)'},border:{display:false},ticks:{color:'#9E9CB0',font:{size:10},callback:v=>'$u '+(v/1e3).toFixed(0)+'k'}}}}
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fF(c.raw)+' prom/dia'},...TT}},scales:{x:{grid:{display:false},ticks:{color:'#9E9CB0',font:{size:11}}},y:{grid:{color:'rgba(0,0,0,0.05)'},border:{display:false},ticks:{color:'#9E9CB0',font:{size:10},callback:v=>'$u '+(v/1e3).toFixed(0)+'k'}}}}
   });
 
   new Chart(document.getElementById('cTicket'),{
@@ -621,46 +555,21 @@ function initStaticCharts(diaSem,ticketDist,topRut,topMat){
 
   const tot=ticketDist.reduce((a,b)=>a+b.n,0);
   document.getElementById('ticketStats').innerHTML=
-    ticketDist.map((x,i)=>`<span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--t2);"><span style="width:9px;height:9px;border-radius:2px;background:${C_BARP[i]};flex-shrink:0;display:inline-block;"></span>${x.r} <strong style="color:var(--t1);">${(x.n/tot*100).toFixed(1)}%</strong></span>`).join('');
-
-  // Tabla RUTs
-  const tR=document.getElementById('tRUT');
-  tR.innerHTML=`<thead><tr><th>#</th><th>Titular</th><th>Total</th><th>Litros</th><th>Visitas</th></tr></thead>`;
-  const tbR=document.createElement('tbody');
-  topRut.forEach((r,i)=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML=`<td><span class="rnk ${i<3?'top':''}">${i+1}</span></td><td style="color:var(--t1);font-size:12px;">${r.titular}</td><td class="num">${fmt(r.total)}</td><td style="text-align:right;font-size:12px;color:var(--t2);">${Math.round(r.litros).toLocaleString('es-UY')} L</td><td style="text-align:right;font-size:12px;color:var(--t2);">${r.boletas}</td>`;
-    tbR.appendChild(tr);
-  });
-  tR.appendChild(tbR);
-
-  // Tabla matrículas — una sola columna completa
-  const tM=document.getElementById('tMat');
-  tM.innerHTML=`<thead><tr><th>#</th><th>Matrícula</th><th>Total</th><th>Litros</th><th>Visitas</th></tr></thead>`;
-  const tbM=document.createElement('tbody');
-  topMat.forEach((m,i)=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML=`<td><span class="rnk ${i<3?'top':''}">${i+1}</span></td><td style="color:var(--t1);font-weight:600;font-size:12px;">${m.mat}</td><td class="num">${fmt(m.total)}</td><td style="text-align:right;font-size:12px;color:var(--t2);">${Math.round(m.litros).toLocaleString('es-UY')} L</td><td style="text-align:right;font-size:12px;color:var(--t2);">${m.visitas}</td>`;
-    tbM.appendChild(tr);
-  });
-  tM.appendChild(tbM);
+    ticketDist.map((x,i)=>'<span style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--t2);"><span style="width:9px;height:9px;border-radius:2px;background:'+C_BARP[i]+';flex-shrink:0;display:inline-block;"></span>'+x.r+' <strong style="color:var(--t1);">'+(x.n/tot*100).toFixed(1)+'%</strong></span>').join('');
 }
 
-// ── FALLBACK DATA ─────────────────────────────────────────
-const FALLBACK={"generado":"2026-03-18 00:00","raw":{"2026":{"2":{"dias":["1/2","2/2","3/2","4/2","5/2","6/2","7/2","8/2","9/2","10/2","11/2","12/2","13/2","14/2","15/2","16/2","17/2","18/2","19/2","20/2","21/2","22/2","23/2","24/2","25/2","26/2","27/2","28/2"],"todas":{"vd":{"1/2":269652.02,"2/2":403830.84,"3/2":523363.92,"4/2":521124.1,"5/2":555210.21,"6/2":519202.32,"7/2":511019.43,"8/2":304944.67,"9/2":494431.64,"10/2":469273.5,"11/2":457418.98,"12/2":422649.31,"13/2":526597.79,"14/2":457035.93,"15/2":212178.84,"16/2":317110.68,"17/2":287372.82,"18/2":389704.41,"19/2":403816.12,"20/2":444949.16,"21/2":339757.73,"22/2":244193.56,"23/2":417028.9,"24/2":443895.39,"25/2":454118.26,"26/2":443735.68,"27/2":501290.67,"28/2":403716.0},"tt":18087,"pr":[{"n":"SUPER 95 SP","v":5382257.35,"cat":"comb"},{"n":"PREMIUM","v":1213385.86,"cat":"comb"},{"n":"GASOIL","v":887120.67,"cat":"comb"},{"n":"ROTISERIA *","v":240510.0,"cat":"mini"},{"n":"NEVADA GRANDE BOX","v":112010.0,"cat":"mini"},{"n":"MONSTER ENERGY 473","v":58850.0,"cat":"mini"},{"n":"CORONADO CHICO","v":55200.0,"cat":"mini"},{"n":"COCA COLA 600 ML","v":53970.0,"cat":"mini"},{"n":"RECARGAS ELECTRONICAS","v":53558.0,"cat":"mini"},{"n":"CORONADO GRANDE BOX","v":51980.0,"cat":"mini"}],"totComb":7496562.88,"totMini":4242060.0,"litrosComb":102591.2},"comb":{"vd":{"1/2":130137.02,"2/2":260059.84,"3/2":357114.92,"4/2":313887.1,"5/2":337780.21,"6/2":312113.32,"7/2":310220.43,"8/2":160063.67,"9/2":315420.64,"10/2":290721.5,"11/2":291251.98,"12/2":283189.31,"13/2":366398.79,"14/2":309975.93,"15/2":110066.84,"16/2":193781.68,"17/2":169475.82,"18/2":249521.41,"19/2":270108.12,"20/2":295271.16,"21/2":213474.73,"22/2":109534.56,"23/2":296184.9,"24/2":311459.39,"25/2":321608.26,"26/2":304724.68,"27/2":341650.67,"28/2":271366.0},"tt":1834,"pr":[{"n":"SUPER 95 SP","v":5382257.35,"cat":"comb"},{"n":"PREMIUM","v":1213385.86,"cat":"comb"},{"n":"GASOIL","v":887120.67,"cat":"comb"}],"litros":102591.2},"mini":{"vd":{"1/2":139515.0,"2/2":143771.0,"3/2":166249.0,"4/2":207237.0,"5/2":217430.0,"6/2":207089.0,"7/2":200799.0,"8/2":144881.0,"9/2":179011.0,"10/2":178552.0,"11/2":166167.0,"12/2":139460.0,"13/2":160199.0,"14/2":147060.0,"15/2":102112.0,"16/2":123329.0,"17/2":117897.0,"18/2":140183.0,"19/2":133708.0,"20/2":149678.0,"21/2":126283.0,"22/2":134659.0,"23/2":120844.0,"24/2":132436.0,"25/2":132510.0,"26/2":139011.0,"27/2":159640.0,"28/2":132350.0},"tt":16345,"pr":[{"n":"ROTISERIA *","v":240510.0,"cat":"mini"},{"n":"NEVADA GRANDE BOX","v":112010.0,"cat":"mini"},{"n":"MONSTER ENERGY 473","v":58850.0,"cat":"mini"},{"n":"CORONADO CHICO","v":55200.0,"cat":"mini"},{"n":"COCA COLA 600 ML","v":53970.0,"cat":"mini"}]},"horas":{"0":13992.0,"1":8510.0,"2":7797.9,"3":0,"4":6910.7,"5":38032.9,"6":91491.8,"7":2190887.87,"8":873073.78,"9":374357.8,"10":382862.4,"11":516759.7,"12":510974.77,"13":547124.9,"14":532348.4,"15":2107144.22,"16":561633.91,"17":529984.58,"18":485917.4,"19":449928.55,"20":399680.6,"21":472668.8,"22":410815.6,"23":225724.3}}}},"diaSemana":[{"d":"Lunes","v":408100},{"d":"Martes","v":430976},{"d":"Miércoles","v":455591},{"d":"Jueves","v":456352},{"d":"Viernes","v":498009},{"d":"Sábado","v":427882},{"d":"Domingo","v":257742}],"ticketDist":[{"r":"< $500","n":14771},{"r":"$500–$2k","n":2274},{"r":"$2k–$10k","n":808},{"r":"$10k–$50k","n":184}],"ticketStats":{"promedio":649.01,"mediana":197.0,"max":30999.83,"total":18087},"topRUT":[{"rut":"210275590011","titular":"Droguería Uruguay","total":401938.1,"litros":6508.137,"boletas":183},{"rut":"212088310015","titular":"MAUFE SRL","total":262816.2,"litros":5183.568,"boletas":80},{"rut":"211229400017","titular":"HEBA LTDA.","total":137228.7,"litros":1756.57,"boletas":83},{"rut":"215448760011","titular":"VERYCAM S.A.","total":110530.4,"litros":1420.88,"boletas":56},{"rut":"211143700012","titular":"AGUATEC URUGUAYA","total":74825.7,"litros":961.891,"boletas":23}],"topMat":[{"mat":"SDK9268","total":51623.3,"litros":663.624,"visitas":26},{"mat":"SDJ3725","total":50890.4,"litros":1040.703,"visitas":27},{"mat":"SDJ3729","total":50132.2,"litros":1025.201,"visitas":24},{"mat":"SCB8591","total":44331.2,"litros":906.568,"visitas":10},{"mat":"SDB6486","total":36211.5,"litros":740.523,"visitas":19},{"mat":"SBR1808","total":35751.4,"litros":731.112,"visitas":10},{"mat":"AAN3743","total":31795.2,"litros":391.784,"visitas":12},{"mat":"SDB6485","total":31501.1,"litros":644.195,"visitas":22},{"mat":"SCW5560","total":30860.5,"litros":631.092,"visitas":5},{"mat":"STU2258","total":30516.2,"litros":624.051,"visitas":16}]};
-
-// ── BOOT ─────────────────────────────────────────────────
+// BOOT
 function arrancar(data){
-  RAW=data.raw; DIA_SEM=data.diaSemana; TICKET_DIST=data.ticketDist; TOP_RUT=data.topRUT; TOP_MAT=data.topMat;
+  RAW=data.raw; DIA_SEM=data.diaSemana; TICKET_DIST=data.ticketDist; TICKET_STATS=data.ticketStats||{};
   const anos=Object.keys(RAW).sort();
   S.anio=anos[anos.length-1];
   const meses=Object.keys(RAW[S.anio]).map(Number).sort((a,b)=>a-b);
   S.mes=String(meses[meses.length-1]);
-  if(data.generado) document.getElementById('hdrPeriod').textContent+=` · actualizado ${data.generado.slice(0,10)}`;
+  if(data.generado) document.getElementById('hdrPeriod').textContent+=' · actualizado '+data.generado.slice(0,10);
   buildSelects();
-  buildFiltrosClienteProd();
+  buildFiltrosProd();
   initCharts();
-  initStaticCharts(DIA_SEM,TICKET_DIST,TOP_RUT,TOP_MAT);
+  initStaticCharts(DIA_SEM,TICKET_DIST);
   rAll();
 }
 
@@ -669,9 +578,9 @@ window.addEventListener('DOMContentLoaded',async()=>{
     const res=await fetch('datos.json');
     if(!res.ok)throw new Error();
     arrancar(await res.json());
-  }catch{
-    console.info('Usando datos embebidos.');
-    arrancar(FALLBACK);
+  }catch(e){
+    console.error('Error cargando datos:',e);
+    document.querySelector('.main').innerHTML='<div style="text-align:center;padding:60px;color:var(--t3);">No se pudieron cargar los datos. Verifica que datos.json exista.</div>';
   }
 });
 </script>
