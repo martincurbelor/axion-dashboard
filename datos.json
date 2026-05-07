@@ -1,5 +1,5 @@
 {
-  "generado": "2026-04-17 06:30",
+  "generado": "2026-05-07 06:30",
   "raw": {
     "2025": {
       "1": {
@@ -5028,6 +5028,201 @@
           "1": 490.0,
           "2": 200.0
         }
+      },
+      "5": {
+        "dias": [
+          "6/5"
+        ],
+        "todas": {
+          "vd": {
+            "6/5": 497287.55
+          },
+          "tt": 740,
+          "pr": [
+            {
+              "n": "SUPER 95 SP",
+              "v": 226714.74,
+              "cat": "comb"
+            },
+            {
+              "n": "GARAJE",
+              "v": 40700.0,
+              "cat": "mini"
+            },
+            {
+              "n": "GASOIL",
+              "v": 40576.1,
+              "cat": "comb"
+            },
+            {
+              "n": "PREMIUM",
+              "v": 40473.71,
+              "cat": "comb"
+            },
+            {
+              "n": "ROTISERIA *",
+              "v": 8325.0,
+              "cat": "mini"
+            },
+            {
+              "n": "FIGURITAS FIFA",
+              "v": 5340.0,
+              "cat": "mini"
+            },
+            {
+              "n": "NEVADA GRANDE BOX",
+              "v": 4830.0,
+              "cat": "mini"
+            },
+            {
+              "n": "GRASA COMUN 1KG",
+              "v": 2730.0,
+              "cat": "mini"
+            },
+            {
+              "n": "CORONADO GRANDE BOX",
+              "v": 2530.0,
+              "cat": "mini"
+            },
+            {
+              "n": "ESTACIONAMIENTO",
+              "v": 2375.0,
+              "cat": "mini"
+            },
+            {
+              "n": "COCA COLA 600 ML",
+              "v": 2100.0,
+              "cat": "mini"
+            },
+            {
+              "n": "RECARGAS ELECTRONICAS",
+              "v": 1900.0,
+              "cat": "mini"
+            },
+            {
+              "n": "MONSTER ENERGY 473",
+              "v": 1650.0,
+              "cat": "mini"
+            },
+            {
+              "n": "TABACO CERRITO",
+              "v": 1600.0,
+              "cat": "mini"
+            },
+            {
+              "n": "COCA COLA 1,5 LT PET",
+              "v": 1500.0,
+              "cat": "mini"
+            }
+          ],
+          "totComb": 307764.55,
+          "totMini": 189523.0,
+          "litrosComb": 3723.7
+        },
+        "comb": {
+          "vd": {
+            "6/5": 307764.55
+          },
+          "tt": 86,
+          "pr": [
+            {
+              "n": "SUPER 95 SP",
+              "v": 226714.74,
+              "cat": "comb"
+            },
+            {
+              "n": "GASOIL",
+              "v": 40576.1,
+              "cat": "comb"
+            },
+            {
+              "n": "PREMIUM",
+              "v": 40473.71,
+              "cat": "comb"
+            }
+          ],
+          "litros": 3723.7
+        },
+        "mini": {
+          "vd": {
+            "6/5": 189523.0
+          },
+          "tt": 656,
+          "pr": [
+            {
+              "n": "GARAJE",
+              "v": 40700.0,
+              "cat": "mini"
+            },
+            {
+              "n": "ROTISERIA *",
+              "v": 8325.0,
+              "cat": "mini"
+            },
+            {
+              "n": "FIGURITAS FIFA",
+              "v": 5340.0,
+              "cat": "mini"
+            },
+            {
+              "n": "NEVADA GRANDE BOX",
+              "v": 4830.0,
+              "cat": "mini"
+            },
+            {
+              "n": "GRASA COMUN 1KG",
+              "v": 2730.0,
+              "cat": "mini"
+            },
+            {
+              "n": "CORONADO GRANDE BOX",
+              "v": 2530.0,
+              "cat": "mini"
+            },
+            {
+              "n": "ESTACIONAMIENTO",
+              "v": 2375.0,
+              "cat": "mini"
+            },
+            {
+              "n": "COCA COLA 600 ML",
+              "v": 2100.0,
+              "cat": "mini"
+            },
+            {
+              "n": "RECARGAS ELECTRONICAS",
+              "v": 1900.0,
+              "cat": "mini"
+            },
+            {
+              "n": "MONSTER ENERGY 473",
+              "v": 1650.0,
+              "cat": "mini"
+            }
+          ]
+        },
+        "horas": {
+          "0": 5444.5,
+          "5": 500.0,
+          "6": 5593.8,
+          "7": 98467.32,
+          "8": 17066.8,
+          "9": 16982.2,
+          "10": 12880.0,
+          "11": 54103.8,
+          "12": 18317.3,
+          "13": 30785.6,
+          "14": 17492.0,
+          "15": 69390.83,
+          "16": 21675.7,
+          "17": 17777.8,
+          "18": 38728.2,
+          "19": 20073.6,
+          "20": 14936.0,
+          "21": 10281.0,
+          "22": 19505.1,
+          "23": 7286.0
+        }
       }
     }
   },
@@ -5042,7 +5237,7 @@
     },
     {
       "d": "Miercoles",
-      "v": 467291.34
+      "v": 467726.07
     },
     {
       "d": "Jueves",
@@ -5064,19 +5259,19 @@
   "ticketDist": [
     {
       "r": "< $500",
-      "n": 265595
+      "n": 266195
     },
     {
       "r": "$500-$2k",
-      "n": 35936
+      "n": 36030
     },
     {
       "r": "$2k-$10k",
-      "n": 13619
+      "n": 13657
     },
     {
       "r": "$10k-$50k",
-      "n": 3533
+      "n": 3541
     },
     {
       "r": "> $50k",
@@ -5084,9 +5279,9 @@
     }
   ],
   "ticketStats": {
-    "promedio": 638.23,
+    "promedio": 638.31,
     "mediana": 186.0,
     "max": 94730.3,
-    "total": 318706
+    "total": 319446
   }
 }
